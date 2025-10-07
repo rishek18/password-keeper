@@ -1,0 +1,48 @@
+# =========================================
+# Dependencies / Secrets (MOST IMPORTANT)
+# =========================================
+# Ignore all node_modules folders in the project
+node_modules/
+
+# Ignore all environment files. This is CRITICAL for security.
+.env
+.env.*
+!.env.example
+
+# =========================================
+# Production build folders
+# =========================================
+# React build output
+client/build/
+
+# General build/distribution folders
+build/
+dist/
+
+# =========================================
+# Log files
+# =========================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================================
+# OS-specific files
+# =========================================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# =========================================
+# Editor configuration
+# =========================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# Jetbrains (WebStorm, etc.)
+.idea/
