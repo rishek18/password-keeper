@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "proxy": "http://localhost:5000",
+ 
   "description": "Backend server for the secure project",
   "main": "server.js",
   "scripts": {
