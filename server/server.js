@@ -11,12 +11,14 @@ dotenv.config();
 connectDB();
 
 const app = express();
-/*
 // Middleware
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production' 
+    ? `https://${process.env.VERCEL_URL}` 
+    : 'http://localhost:3000',
   credentials: true,
-}));*/
+}));
+
 app.use(express.json()); // To parse JSON request bodies
 app.use(express.urlencoded({ extended: false })); // To parse URL-encoded bodies
 
