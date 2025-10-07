@@ -12,12 +12,17 @@ connectDB();
 
 const app = express();
 // Middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? `https://${process.env.VERCEL_URL}` 
-    : 'http://localhost:3000',
-  credentials: true,
-}));
+// Middleware
+// A more robust CORS setup for Vercel
+if (process.env.VERCEL_URL) {
+  app.use(cors({
+    origin: `https://${process.env.VERCEL_URL}`,
+    credentials: true
+  }));
+} else {
+  // Fallback for local development
+  app.use(cors());
+}
 
 app.use(express.json()); // To parse JSON request bodies
 app.use(express.urlencoded({ extended: false })); // To parse URL-encoded bodies
