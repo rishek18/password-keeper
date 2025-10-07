@@ -28,7 +28,15 @@ app.use('/api/vault', require('./routes/vaultRoutes'));
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
-
+/*
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+*/
+// ... at the end of server/server.js
+
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Export the app for Vercel
+module.exports = app;
