@@ -1,15 +1,17 @@
-// client/frontend/src/lib/api.js
 import axios from 'axios';
 
-// No need for environment variables or full URLs for development!
+// Automatically use backend URL from env in production,
+// or fallback to relative '/api' (for local dev proxy)
 const api = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}/api`, // The proxy will forward this to http://localhost:5000/api
+  baseURL: process.env.BACKEND_URL
+    ? `${process.env.BACKEND_URL}/api`
+    : '/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// The interceptor remains the same and is perfect
+// Auth token interceptor
 api.interceptors.request.use(
   (config) => {
     const token = sessionStorage.getItem('token');
@@ -18,9 +20,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 export default api;
