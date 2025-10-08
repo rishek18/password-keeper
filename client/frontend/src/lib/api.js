@@ -5,7 +5,7 @@ import axios from 'axios';
 const api = axios.create({
   baseURL: process.env.BACKEND_URL
     ? `${process.env.BACKEND_URL}/api`
-    : '/api',
+    : 'https://password-keeper-d93t.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
